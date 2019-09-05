@@ -24,7 +24,7 @@ def index():
         file = request.files['query_img']
 
         img = Image.open(file.stream)  # PIL image
-        uploaded_img_path = "static/uploaded/" + datetime.now().isoformat() + "_" + file.filename
+        uploaded_img_path = "static/uploaded/" + file.filename
         img.save(uploaded_img_path)
 
         query = fe.extract(img)
@@ -39,4 +39,4 @@ def index():
         return render_template('index.html')
 
 if __name__=="__main__":
-    app.run("0.0.0.0")
+    app.run("127.0.0.1")
